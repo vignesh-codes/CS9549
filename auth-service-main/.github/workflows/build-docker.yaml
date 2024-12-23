@@ -1,0 +1,30 @@
+name: Build Docker Image
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    name: Push Docker Image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set version tag
+        id: set-version
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+      - name: Login to Docker Hub
+        id: docker-hub
+        env:
+          username: dubemezeagwu
+          password: docker@123
+        run: |
+          docker login -u $username -p $password
+      - name: Build the Docker image
+        id: build-docker-image
+        run: |
+          ls -la
+          docker build . -f Dockerfile -t dubemezeagwu/auth-service:${{ env.version }}
+      - name: Push the Docker image
+        id: push-docker-image
+        run: docker push dubemezeagwu/auth-service:${{ env.version }}
