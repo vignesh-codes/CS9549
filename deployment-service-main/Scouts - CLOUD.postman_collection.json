@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "7ac83a5b-fa7a-41aa-b65c-441a81aeeb76",
+		"name": "Scouts - CLOUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13959093",
+		"_collection_link": "https://bold-rocket-644232.postman.co/workspace/js-apis~c8241e05-15bc-4630-9aa1-caec63c4bda4/collection/13959093-7ac83a5b-fa7a-41aa-b65c-441a81aeeb76?action=share&source=collection_link&creator=13959093"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/v1/build/scout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QtdjEiLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzMzNzk1MzQzLCJleHAiOjE3MzM4NjczNDN9.a5gHetKi-ZYKYx5xDrJHr-ks2kIRZNKBkGbVmwptyac",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"value": "default",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"github_url\": \"https://github.com/vignesh-codes/Typescript-Node-Auth-Boilerplate\",\r\n    \"docker_base_url\": \"dubemezeagwu/ece9065-test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://104.198.50.89/v1/build/scout",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"v1",
+						"build",
+						"scout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/v1/build/scout",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "default",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://104.198.50.89/v1/build/scout",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"v1",
+						"build",
+						"scout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.198.50.89/health",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/health",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "default"
+					}
+				],
+				"url": {
+					"raw": "http://104.198.50.89/health",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8080/health' --header 'username: default'"
+			},
+			"response": []
+		}
+	]
+}

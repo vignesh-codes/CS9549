@@ -1,0 +1,63 @@
+# Service Account for deployment-service
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: deployment-service-sa
+  namespace: core-services
+
+---
+# Role for namespace-specific access (core-services namespace)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: core-services
+  name: deployment-service-role
+rules:
+- apiGroups: [""]
+  resources: ["pods", "deployments", "services", "namespaces"]
+  verbs: ["get", "list", "create", "delete", "update", "edit"]
+
+---
+# RoleBinding for binding the Role within the core-services namespace
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: deployment-service-rolebinding
+  namespace: core-services
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: deployment-service-role
+subjects:
+- kind: ServiceAccount
+  name: deployment-service-sa
+  namespace: core-services
+
+---
+# ClusterRole for cluster-wide access
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: deployment-service-cluster-role
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "namespaces"]
+  verbs: ["get", "list", "create", "delete", "update", "edit"]
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "create", "delete", "update", "edit"]
+
+---
+# ClusterRoleBinding for binding the ClusterRole across the whole cluster
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: deployment-service-cluster-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: deployment-service-cluster-role
+subjects:
+- kind: ServiceAccount
+  name: deployment-service-sa
+  namespace: core-services

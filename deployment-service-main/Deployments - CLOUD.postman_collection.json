@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "5b766af7-6623-4b0f-8f76-1db2b201ff14",
+		"name": "Deployments - CLOUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13959093",
+		"_collection_link": "https://bold-rocket-644232.postman.co/workspace/js-apis~c8241e05-15bc-4630-9aa1-caec63c4bda4/collection/13959093-5b766af7-6623-4b0f-8f76-1db2b201ff14?action=share&source=collection_link&creator=13959093"
+	},
+	"item": [
+		{
+			"name": "Get Tenant Info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "default",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://104.198.50.89/v1/deployments/tenant/",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"v1",
+						"deployments",
+						"tenant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Deployments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "default",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://104.198.50.89/v1/deployments",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"v1",
+						"deployments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create NS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "default",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://104.198.50.89/v1/deployments/createns",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"v1",
+						"deployments",
+						"createns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Deployment By Name",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "username",
+						"value": "default",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://104.198.50.89/v1/deployments/ece9065-server",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"v1",
+						"deployments",
+						"ece9065-server"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Latest Events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.198.50.89/v1/deployments/events",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"v1",
+						"deployments",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a New Deployment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "default",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"repo_scout_id\": \"67522368fbf87d60b8010311\",\r\n    \"container_port\": 5173,\r\n    \"image\": \"dubemezeagwu/ece9065-client:v0.0.3\",\r\n    \"name\": \"ece9065-client\",\r\n    \"replicas\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://104.198.50.89/v1/deployments",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"v1",
+						"deployments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Replicas and Image",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "username",
+						"value": "default",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"deployment-service-new1\",\r\n    \"replicas\": 0,\r\n    \"image\": \"dubemezeagwu/deployment-service:v1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://104.198.50.89/v1/deployments/",
+					"protocol": "http",
+					"host": [
+						"104",
+						"198",
+						"50",
+						"89"
+					],
+					"path": [
+						"v1",
+						"deployments",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
